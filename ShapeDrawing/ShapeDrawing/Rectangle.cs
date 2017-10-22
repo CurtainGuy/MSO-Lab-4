@@ -7,6 +7,7 @@ using System.Text;
 
 class Rectangle : Shape
 {
+
     private int x;
 	private int y;
 	private int width;
@@ -19,6 +20,19 @@ class Rectangle : Shape
 		this.width = width;
 		this.height = height;
     }
-   
+    
+	public override void Draw(Graphics Canvas)
+    {
+        Point[] pts = new Point[5];
+        pts[0] = new Point(x, y);
+        pts[1] = new Point(x + width);
+        pts[2] = new Point(x + width, y + height);
+        pts[3] = new Point(x, y + height);
+        pts[4] = new Point(x, y);
+
+        // Heeft dit nog Canvas nodig?
+        output.drawLines(pts);
+        
+    }
 }
 
