@@ -20,8 +20,8 @@ class Circle : Shape
 
     public override void Draw(Graphics Canvas)
     {
-		Pen pen = new Pen(Color.Black);
-        Canvas.DrawEllipse(pen, this.x, this.y, this.size, this.size);
+        Point middle = new Point(x, y);
+        output.DrawCircle(middle, size);
     }
 
 }
