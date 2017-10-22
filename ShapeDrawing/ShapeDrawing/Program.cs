@@ -15,7 +15,7 @@ namespace ShapeDrawing
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShapeDrawingForm());
+            Application.Run(new ShapeDrawingForm());            
         }
     }
 }

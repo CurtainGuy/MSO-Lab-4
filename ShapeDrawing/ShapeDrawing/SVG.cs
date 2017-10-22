@@ -20,7 +20,8 @@ namespace ShapeDrawing
             }
             s += points[0].X + "," + points[0].Y + "\"";
             s = s + " style=\"fill:none;stroke:black;stroke-width1\" />";
-            total += s;            
+            total += s;
+            Console.WriteLine(total);            
         }
         public override void drawCircle(Point middle, int radius)
         {
