@@ -2,21 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace ShapeDrawing
 {
     class SVG : Output
     {
-        public string drawRectangle(Rectangle shape)
+        string total;     
+        public override void drawLines(Point[] points)
         {
-            string s = "<polyline points=";
-            string line1 = shape.X + "," + shape.Y;
-            string line2 = (shape.X + shape.Width) + "," + shape.Y;
-            string line3 = (shape.X + shape.Width) + "," + (shape.Y + shape.Height);
-            string line4 = shape.X + "," + (shape.Y + shape.Height);
-            string line5 = line1;
-            s = s + line1 + " " + line2 + " " + line3 + " " + line4 + " " + line5 + " style=fill:none;stroke:black;stroke-width1 />"
-            return s;
+            string s = "<polyline points=\"";
+            int n = points.Length;
+            for (int i = 0; i < n; i++)
+            {
+                string point = points[i].X + "," + points[i].Y;
+                s = s + point + " ";
+            }
+            s += points[0].X + "," + points[0].Y + "\"";
+            s = s + " style=\"fill:none;stroke:black;stroke-width1\" />";
+            total += s;            
+        }
+        public override void drawCircle(Point middle, int radius)
+        {
+            string s = "<circle " + "cx=\"" + middle.X + "\" " + "cy=\"" + middle.Y + "\" " + "r=\"" + radius + "\" " + "stroke-width=\"1\" fill = \"none\" stroke=\"black\" />";
         }
     }
 }
+ 

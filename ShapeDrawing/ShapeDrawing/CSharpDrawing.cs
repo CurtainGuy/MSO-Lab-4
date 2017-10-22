@@ -8,22 +8,28 @@ namespace ShapeDrawing
 {
     class CSharpDrawing : Output
     {
+        //HIER MOET EEN GRAPHICS AAN WORDEN MEEGEGEVEN
+        Graphics Canvas;
         Pen pen = new Pen(Color.Black);
+        public CSharpDrawing(Graphics graphics)
+        {
+            Canvas = graphics;
+        }        
         
-        public void drawRectangle(Rectangle shape, Graphics Canvas)
+        public override void drawLines(Point[] points)
         {
-            int x = shape.X;
-            int y = shape.Y;
-            int height = shape.Height;
-            int width = shape.Width;
-            Canvas.DrawLine(pen, x, y, x + width, y);
-            Canvas.DrawLine(pen, x + width, y, x + width, y + height);
-            Canvas.DrawLine(pen, x + width, y + height, x, y + height);
-            Canvas.DrawLine(pen, x, y + height, x, y);
+            int n = points.Length - 1;
+            for (int i = 0; i < n; i++)
+            {
+                int y = points[i].Y;
+                Canvas.DrawLine(pen, points[i].X, points[i].Y, points[i+1].X, points[i+1].Y);
+            }
+            Canvas.DrawLine(pen, points[n].X, points[n].Y, points[0].X, points[0].Y);
+            
         }
-        public void drawCircle(Circle shape)
+        public override void drawCircle(Point middle, int radius)
         {
-
+            Canvas.DrawEllipse(pen, middle.X, middle.Y, radius, radius);
         }
     }
 }
