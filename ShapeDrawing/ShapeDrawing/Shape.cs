@@ -10,6 +10,10 @@ public abstract class Shape
 	{
 	}
 
-    public abstract void Draw(Graphics Canvas);
+    public virtual void Draw(Graphics Canvas)
+    {
+
+    }
+        
 	
 }
