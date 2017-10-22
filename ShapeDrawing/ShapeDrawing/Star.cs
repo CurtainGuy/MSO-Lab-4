@@ -40,7 +40,7 @@ public class Star : Shape
 			theta += dtheta;
 		}
 
-        output.DrawLines(pts);
+        output.drawLines(pts);
 		
 	}
 }

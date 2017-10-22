@@ -21,7 +21,7 @@ class Circle : Shape
     public override void Draw(Graphics Canvas)
     {
         Point middle = new Point(x, y);
-        output.DrawCircle(middle, size);
+        output.drawCircle(middle, size);
     }
 
 }

@@ -31,7 +31,7 @@ class Rectangle : Shape
         pts[4] = new Point(x, y);
 
         // Heeft dit nog Canvas nodig?
-        output.DrawPoints(pts);
+        output.drawLines(pts);
         
     }
 }
