@@ -8,6 +8,10 @@ public abstract class Shape
 	{
 	}
 
+    public void Draw(Graphics Canvas)
+    {
+
+    }
         
 	
 }
