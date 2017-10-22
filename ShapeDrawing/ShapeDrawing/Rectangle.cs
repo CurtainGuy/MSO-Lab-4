@@ -7,7 +7,6 @@ using System.Text;
 
 class Rectangle : Shape
 {
-
     private int x;
 	private int y;
 	private int width;
@@ -20,14 +19,6 @@ class Rectangle : Shape
 		this.width = width;
 		this.height = height;
     }
-    
-	public override void Draw(Graphics Canvas)
-    {
-		Pen pen = new Pen(Color.Black);
-		Canvas.DrawLine(pen,x,y,x + width,y);
-		Canvas.DrawLine(pen,x+width,y,x+width,y+height);
-		Canvas.DrawLine(pen,x+width,y+height,x,y+height);
-		Canvas.DrawLine(pen,x,y+height,x,y);
-    }
+   
 }
 
