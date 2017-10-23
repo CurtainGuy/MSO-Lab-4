@@ -5,11 +5,6 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
 
-enum Method
-{
-    CSharp,
-    SVG
-}
 
 public class ShapeDrawingForm : Form
 {
