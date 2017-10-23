@@ -10,7 +10,7 @@ public abstract class Shape
 	{
 	}
 
-    public virtual void Draw(Graphics Canvas)
+    public virtual void Draw(Output output, Graphics Canvas = null)
     {
 
     }

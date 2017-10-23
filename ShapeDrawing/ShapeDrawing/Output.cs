@@ -7,11 +7,11 @@ using System.Drawing;
 
 public abstract class Output
 {
-    public virtual void drawLines(Point[] points)
+    public virtual void drawLines(Point[] points, Graphics Canvas = null)
     {
 
     }
-    public virtual void drawCircle(Point middle, int radius)
+    public virtual void drawCircle(Point middle, int radius, Graphics Canvas = null)
     {
 
     }

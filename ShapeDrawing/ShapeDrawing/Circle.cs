@@ -18,10 +18,10 @@ class Circle : Shape
 		this.size = size;
     }
 
-    public override void Draw(Graphics Canvas)
+    public override void Draw(Output output, Graphics Canvas = null)
     {
         Point middle = new Point(x, y);
-        output.drawCircle(middle, size);
+        output.drawCircle(middle, size, Canvas);
     }
 
 }

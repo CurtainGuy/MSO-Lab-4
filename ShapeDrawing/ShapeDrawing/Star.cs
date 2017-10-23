@@ -20,7 +20,7 @@ public class Star : Shape
 		this.height = height;
 	}
 
-	public override void Draw (Graphics Canvas)
+	public override void Draw (Output output, Graphics Canvas = null)
 	{
 		int numPoints = 5;
 		Point[] pts = new Point[numPoints];
@@ -40,7 +40,7 @@ public class Star : Shape
 			theta += dtheta;
 		}
 
-        output.drawLines(pts);
+        output.drawLines(pts, Canvas);
 		
 	}
 }
