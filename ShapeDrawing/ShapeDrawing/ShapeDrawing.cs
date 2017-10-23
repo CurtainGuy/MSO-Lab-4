@@ -5,6 +5,12 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
 
+enum Method
+{
+    CSharp,
+    SVG
+}
+
 public class ShapeDrawingForm : Form
 {
 	private List<Shape> shapes;
@@ -55,34 +61,25 @@ public class ShapeDrawingForm : Form
 
     }
 
-    // What to do when the user wants to export a TeX file
+    // What to do when the user wants to export a SVG file
 	private void exportHandler (object sender, EventArgs e)
 	{
-		Stream stream;
-		SaveFileDialog saveFileDialog = new SaveFileDialog();
+        SVG svg = new SVG();
 
-		saveFileDialog.Filter = "TeX files|(*.tex)";
-		saveFileDialog.RestoreDirectory = true;
-		
-		if(saveFileDialog.ShowDialog() == DialogResult.OK)
-		{
-			if((stream = saveFileDialog.OpenFile()) != null)
-			{
-				// Insert code here that generates the string of LaTeX
-                //   commands to draw the shapes
-                using(StreamWriter writer = new StreamWriter(stream))
-                {
-                        // Write strings to the file here using:
-                        //   writer.WriteLine("Hello World!");
-                }				
-			}
-		}
+        foreach (Shape shape in shapes)
+            shape.Draw(svg);
+        svg.export();
+
+
+
+        
 	}
 
     private void OnPaint(object sender, PaintEventArgs e)
 	{
+        CSharpDrawing csharp = new CSharpDrawing();
         // Draw all the shapes
         foreach (Shape shape in shapes)
-			shape.Draw(e.Graphics);
+			shape.Draw(csharp, e.Graphics);
 	}
 }

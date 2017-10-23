@@ -6,15 +6,9 @@ using System.Drawing;
 
 public class CSharpDrawing : Output
 {
-    //HIER MOET EEN GRAPHICS AAN WORDEN MEEGEGEVEN
-    Graphics Canvas;
     Pen pen = new Pen(Color.Black);
-    public CSharpDrawing(Graphics graphics)
-    {
-        Canvas = graphics;
-    }
 
-    public override void drawLines(Point[] points)
+    public override void drawLines(Point[] points, Graphics Canvas = null)
     {
         int n = points.Length - 1;
         for (int i = 0; i < n; i++)
@@ -25,7 +19,7 @@ public class CSharpDrawing : Output
         Canvas.DrawLine(pen, points[n].X, points[n].Y, points[0].X, points[0].Y);
 
     }
-    public override void drawCircle(Point middle, int radius)
+    public override void drawCircle(Point middle, int radius, Graphics Canvas = null)
     {
         Canvas.DrawEllipse(pen, middle.X, middle.Y, radius, radius);
     }
